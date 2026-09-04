@@ -9,7 +9,7 @@ const plexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "formBio — Historia Clínica",
+  title: "Historia Clínica",
   description:
     "Registro de datos personales, antropométricos y sociales para expediente.",
 };
