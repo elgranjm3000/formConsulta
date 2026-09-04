@@ -75,7 +75,12 @@ export default function Home() {
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(datos.email))
       nuevos.email = "Escribe un correo válido, por ejemplo ana@correo.com.";
     if (!datos.telefono.trim()) nuevos.telefono = "Escribe tu número de teléfono.";
-    if (!datos.fechaNacimiento) nuevos.fechaNacimiento = "Selecciona tu fecha de nacimiento.";
+    if (!datos.fechaNacimiento) {
+      nuevos.fechaNacimiento = "Selecciona tu fecha de nacimiento.";
+    } else if (edad === null) {
+      nuevos.fechaNacimiento =
+        "La fecha no es válida: no puede estar en el futuro.";
+    }
     if (!datos.estadoCivil) nuevos.estadoCivil = "Selecciona tu estado civil.";
     if (!datos.sexo) nuevos.sexo = "Selecciona una opción.";
     if (!datos.peso) nuevos.peso = "Indica tu peso en kilogramos.";
