@@ -1,26 +1,207 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --papel: #eef2f4;
+  --ficha: #ffffff;
+  --tinta: #16303d;
+  --tinta-suave: #5b7280;
+  --linea: #ccd9de;
+  --verde: #0f7b6c;
+  --verde-suave: #e2f1ee;
+  --error: #b0341f;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--font-plex), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.ficha {
+  max-width: 40rem;
+  margin: 3rem auto 5rem;
+  background: var(--ficha);
+  border: 1px solid var(--linea);
+  border-top: 4px solid var(--verde);
+  padding: 0 0 3rem;
+}
+
+@media (max-width: 44rem) {
+  .ficha {
+    margin: 0 auto;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.cabecera {
+  padding: 2rem 2.5rem 1.5rem;
+  border-bottom: 1px solid var(--linea);
+}
+
+.cabecera h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.cabecera p {
+  margin: 0;
+  color: var(--tinta-suave);
+  max-width: 34rem;
+}
+
+.grupo {
+  padding: 1.75rem 2.5rem 0.5rem;
+}
+
+.grupo h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 1.1rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--verde);
+  line-height: 1.2;
+}
+
+.campo {
+  margin-bottom: 1.15rem;
+}
+
+.campo label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.campo .ayuda {
+  font-weight: 400;
+  color: var(--tinta-suave);
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--ficha);
+  border: 1px solid var(--linea);
+  border-radius: 3px;
+  padding: 0.55rem 0.7rem;
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 1px;
+  border-color: var(--verde);
+}
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 30rem) {
+  .fila {
+    grid-template-columns: 1fr;
+  }
+}
+
+.radios {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.radios label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.radios input {
+  width: auto;
+  accent-color: var(--verde);
+}
+
+.radios input:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 2px;
+}
+
+.lectura {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: var(--verde-suave);
+  border-radius: 3px;
+}
+
+.lectura div {
+  display: flex;
+  flex-direction: column;
+}
+
+.lectura dt {
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+}
+
+.lectura dd {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.envio {
+  padding: 1.75rem 2.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.envio button {
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--verde);
+  border: none;
+  border-radius: 3px;
+  padding: 0.7rem 1.6rem;
+  cursor: pointer;
+}
+
+.envio button:hover {
+  background: #0c6558;
+}
+
+.envio button:focus-visible {
+  outline: 2px solid var(--tinta);
+  outline-offset: 2px;
+}
+
+.confirmacion {
+  color: var(--verde);
+  font-weight: 500;
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }
