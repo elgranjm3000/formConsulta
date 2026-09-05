@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type Formato = {
@@ -121,11 +122,21 @@ export default function Home() {
     <main>
       <form className="ficha" onSubmit={enviar} noValidate>
         <header className="cabecera">
-          <h1>Historia Clínica</h1>
-          <p>
-            Completa tus datos personales, antropométricos y sociales. Los campos
-            con datos básicos son obligatorios.
-          </p>
+          <Image
+            src="/terapeuta.jpg"
+            alt="Terapeuta"
+            width={80}
+            height={80}
+            className="foto-terapeuta"
+            priority
+          />
+          <div>
+            <h1>Historia Clínica</h1>
+            <p>
+              Completa tus datos personales, antropométricos y sociales. Los campos
+              con datos básicos son obligatorios.
+            </p>
+          </div>
         </header>
 
         <section className="grupo" aria-labelledby="g-identificacion">
