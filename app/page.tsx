@@ -89,8 +89,15 @@ export default function Home() {
     }
     if (!datos.estadoCivil) nuevos.estadoCivil = "Selecciona tu estado civil.";
     if (!datos.sexo) nuevos.sexo = "Selecciona una opción.";
+    if (!datos.ocupacion.trim()) nuevos.ocupacion = "Indica tu ocupación u oficio.";
     if (!datos.peso) nuevos.peso = "Indica tu peso en kilogramos.";
     if (!datos.estatura) nuevos.estatura = "Indica tu estatura en centímetros.";
+    if (datos.hijos === "") nuevos.hijos = "Indica el número de hijos (0 si no tiene).";
+    if (!datos.ultimaVisitaMedico) nuevos.ultimaVisitaMedico = "Selecciona una opción.";
+    if (!datos.patologia.trim()) nuevos.patologia = "Indica tu patología o escribe \"ninguna\".";
+    if (!datos.motivoConsulta.trim()) nuevos.motivoConsulta = "Describe brevemente el motivo de tu consulta.";
+    if (!datos.gradoInstruccion) nuevos.gradoInstruccion = "Selecciona tu grado de instrucción.";
+    if (!datos.religion) nuevos.religion = "Selecciona tu religión.";
     setErrores(nuevos);
     if (Object.keys(nuevos).length > 0) return;
 
@@ -267,6 +274,7 @@ export default function Home() {
                 value={datos.ocupacion}
                 onChange={(e) => cambiar("ocupacion", e.target.value)}
               />
+              {errores.ocupacion && <p className="error">{errores.ocupacion}</p>}
             </div>
             <div className="campo">
               <label htmlFor="hijos">
@@ -279,6 +287,7 @@ export default function Home() {
                 value={datos.hijos}
                 onChange={(e) => cambiar("hijos", e.target.value)}
               />
+              {errores.hijos && <p className="error">{errores.hijos}</p>}
             </div>
           </div>
         </section>
@@ -337,6 +346,9 @@ export default function Home() {
               <option>Más de 3 años</option>
               <option>Nunca he visitado al médico</option>
             </select>
+            {errores.ultimaVisitaMedico && (
+              <p className="error">{errores.ultimaVisitaMedico}</p>
+            )}
           </div>
 
           <div className="campo">
@@ -350,6 +362,7 @@ export default function Home() {
               value={datos.patologia}
               onChange={(e) => cambiar("patologia", e.target.value)}
             />
+            {errores.patologia && <p className="error">{errores.patologia}</p>}
           </div>
 
           <div className="campo">
@@ -361,6 +374,9 @@ export default function Home() {
               value={datos.motivoConsulta}
               onChange={(e) => cambiar("motivoConsulta", e.target.value)}
             />
+            {errores.motivoConsulta && (
+              <p className="error">{errores.motivoConsulta}</p>
+            )}
           </div>
 
           <div className="fila">
@@ -378,6 +394,9 @@ export default function Home() {
                 <option>Universitario</option>
                 <option>Posgrado</option>
               </select>
+              {errores.gradoInstruccion && (
+                <p className="error">{errores.gradoInstruccion}</p>
+              )}
             </div>
             <div className="campo">
               <label htmlFor="religion">Religión</label>
@@ -392,6 +411,7 @@ export default function Home() {
                 <option>Otra</option>
                 <option>Ninguna</option>
               </select>
+              {errores.religion && <p className="error">{errores.religion}</p>}
             </div>
           </div>
         </section>
