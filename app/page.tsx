@@ -75,6 +75,7 @@ export default function Home() {
 
   async function enviar(e: React.FormEvent) {
     e.preventDefault();
+    if (enviando) return;
     const nuevos: Partial<Record<keyof Formato, string>> = {};
     if (!datos.nombre.trim()) nuevos.nombre = "Escribe tu nombre y apellido.";
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(datos.email))
