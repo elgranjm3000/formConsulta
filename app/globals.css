@@ -74,6 +74,12 @@ body {
   max-width: 34rem;
 }
 
+.cabecera .nombre-terapeuta {
+  color: var(--verde);
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+
 .grupo {
   padding: 1.75rem 2.5rem 0.5rem;
 }

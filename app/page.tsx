@@ -132,6 +132,7 @@ export default function Home() {
           />
           <div>
             <h1>Historia Clínica</h1>
+            <p className="nombre-terapeuta">Stefany Muentes</p>
             <p>
               Completa tus datos personales, antropométricos y sociales. Los campos
               con datos básicos son obligatorios.
