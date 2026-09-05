@@ -83,7 +83,8 @@ body {
 }
 
 .campo input,
-.campo select {
+.campo select,
+.campo textarea {
   width: 100%;
   font: inherit;
   color: var(--tinta);
@@ -94,7 +95,8 @@ body {
 }
 
 .campo input:focus-visible,
-.campo select:focus-visible {
+.campo select:focus-visible,
+.campo textarea:focus-visible {
   outline: 2px solid var(--verde);
   outline-offset: 1px;
   border-color: var(--verde);

@@ -14,6 +14,8 @@ type Formato = {
   estatura: string;
   hijos: string;
   ultimaVisitaMedico: string;
+  patologia: string;
+  motivoConsulta: string;
   gradoInstruccion: string;
   religion: string;
 };
@@ -30,6 +32,8 @@ const inicial: Formato = {
   estatura: "",
   hijos: "",
   ultimaVisitaMedico: "",
+  patologia: "",
+  motivoConsulta: "",
   gradoInstruccion: "",
   religion: "",
 };
@@ -320,6 +324,30 @@ export default function Home() {
               <option>Más de 3 años</option>
               <option>Nunca he visitado al médico</option>
             </select>
+          </div>
+
+          <div className="campo">
+            <label htmlFor="patologia">
+              Patología <span className="ayuda">(escribe "ninguna" si no tiene)</span>
+            </label>
+            <input
+              id="patologia"
+              type="text"
+              placeholder="Por ejemplo: asma, hipertensión"
+              value={datos.patologia}
+              onChange={(e) => cambiar("patologia", e.target.value)}
+            />
+          </div>
+
+          <div className="campo">
+            <label htmlFor="motivoConsulta">Motivo de consulta</label>
+            <textarea
+              id="motivoConsulta"
+              rows={3}
+              placeholder="Describe brevemente el motivo de la consulta"
+              value={datos.motivoConsulta}
+              onChange={(e) => cambiar("motivoConsulta", e.target.value)}
+            />
           </div>
 
           <div className="fila">

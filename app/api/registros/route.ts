@@ -17,6 +17,8 @@ type Registro = {
   imc: string | number;
   hijos: string;
   ultimaVisitaMedico: string;
+  patologia: string;
+  motivoConsulta: string;
   gradoInstruccion: string;
   religion: string;
 };
@@ -26,6 +28,7 @@ const ENCABEZADOS = [
   "Fecha de nacimiento", "Edad", "Estado civil", "Sexo",
   "Ocupación", "Peso (kg)", "Estatura (cm)", "IMC",
   "Número de hijos", "Última visita al médico",
+  "Patología", "Motivo de consulta",
   "Grado de instrucción", "Religión",
 ];
 
@@ -83,7 +86,8 @@ export async function POST(request: Request) {
           new Date().toLocaleString("es-VE"), datos.nombre, datos.email,
           datos.telefono, datos.fechaNacimiento, datos.edad, datos.estadoCivil,
           datos.sexo, datos.ocupacion, datos.peso, datos.estatura, datos.imc,
-          datos.hijos, datos.ultimaVisitaMedico, datos.gradoInstruccion,
+          datos.hijos, datos.ultimaVisitaMedico,
+          datos.patologia, datos.motivoConsulta, datos.gradoInstruccion,
           datos.religion,
         ]],
       },
