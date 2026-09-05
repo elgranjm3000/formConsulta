@@ -83,7 +83,8 @@ export async function POST(request: Request) {
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [[
-          new Date().toLocaleString("es-VE"), datos.nombre, datos.email,
+          new Date().toLocaleString("es-VE", { timeZone: "America/Caracas" }),
+          datos.nombre, datos.email,
           datos.telefono, datos.fechaNacimiento, datos.edad, datos.estadoCivil,
           datos.sexo, datos.ocupacion, datos.peso, datos.estatura, datos.imc,
           datos.hijos, datos.ultimaVisitaMedico,
